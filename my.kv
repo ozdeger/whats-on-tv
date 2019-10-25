@@ -1,0 +1,728 @@
+#: import renklist __main__.renklist
+
+WindowManager:
+    MainWindow:
+    ChooseWindow:
+    ChooseWindow2:
+
+<MainWindow>
+
+    name: "main"
+    scroll_grid:scroll_grid
+
+    FloatLayout:
+        orientation:'vertical'
+        cols:1
+        rows:2
+        size: root.width, root.height
+
+        Button:
+            size_hint: 0.5,0.15
+            pos_hint: {"x":0,"top":1}
+            id: kanallar
+            background_down:""
+            background_color: 0.8, 0.8, 0.6, 1
+            text: "Kanal\nAyarlari"
+            font_size: 30
+            on_release:
+                app.root.current = "kanallar"
+                root.manager.transition.direction = "left"
+
+        Button:
+            size_hint: 0.5,0.15
+            pos_hint: {"x":0.5,"top":1}
+            id: kanallar
+            background_down:""
+            background_color: 0.5, 0.8, 0.8, 1
+            text: "Yenile"
+            font_size: 40
+            on_release:
+                root.refresh()
+
+
+        ScrollView:
+            pos_hint: {"x":0,"top":0.85}
+            size_hint:1,0.85
+            do_scroll_x: False
+            do_scroll_y: True
+            bar_width: 40
+            bar_height:
+            bar_margin:2
+            scroll_type: ['bars','content']
+
+            GridLayout:
+                id:scroll_grid
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: 90
+                cols:3
+
+
+
+
+
+
+
+<ChooseWindow>
+
+    name: "kanallar"
+
+
+    GridLayout:
+        cols:1
+        rows:8
+        size: root.width, root.height
+
+        Button:
+            text: "Geri"
+            font_size: 40
+            background_down:""
+            background_color: 0.6, 0, 0, 1
+            on_release:
+                root.storedata()
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+        GridLayout:
+            cols:4
+            rows:1
+            Button:
+
+                background_down:""
+                background_color:renklist[0]
+                on_release:
+
+                    root.press_kanal(0,self)
+                Image:
+                    source: r'images\kanald.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[1]
+                on_release: root.press_kanal(1,self)
+                Image:
+                    source: r'images\show.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[2]
+                on_release: root.press_kanal(2,self)
+                Image:
+                    source: r'images\star.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[3]
+                on_release: root.press_kanal(3,self)
+                Image:
+                    source: r'images\fox.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+        GridLayout:
+            cols:4
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: renklist[4]
+                on_release: root.press_kanal(4,self)
+                Image:
+                    source: r'images\atv.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+                background_down:""
+                background_color: renklist[5]
+                on_release: root.press_kanal(5,self)
+                Image:
+                    source: r'images\tv8.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[6]
+                on_release: root.press_kanal(6,self)
+                Image:
+                    source: r'images\trt1.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[7]
+                on_release: root.press_kanal(7,self)
+                Image:
+                    source: r'images\teve2.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+        GridLayout:
+            cols:4
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: renklist[8]
+                on_release: root.press_kanal(8,self)
+                Image:
+                    source: r'images\beyaztv.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+                background_down:""
+                background_color: renklist[9]
+                on_release: root.press_kanal(9,self)
+                Image:
+                    source: r'images\a2.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[10]
+                on_release: root.press_kanal(10,self)
+                Image:
+                    source: r'images\tv85.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[11]
+                on_release: root.press_kanal(11,self)
+                Image:
+                    source: r'images\cn.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+        GridLayout:
+            cols:4
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: renklist[12]
+                on_release: root.press_kanal(12,self)
+                Image:
+                    source: r'images\tlc.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+                background_down:""
+                background_color: renklist[13]
+                on_release: root.press_kanal(13,self)
+                Image:
+                    source: r'images\kanal7.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[14]
+                on_release: root.press_kanal(14,self)
+                Image:
+                    source: r'images\cnnturk.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[15]
+                on_release: root.press_kanal(15,self)
+                Image:
+                    source: r'images\trtspor.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+        GridLayout:
+            cols:4
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: renklist[16]
+                on_release: root.press_kanal(16,self)
+                Image:
+                    source: r'images\fbtv.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+                background_down:""
+                background_color: renklist[17]
+                on_release: root.press_kanal(17,self)
+                Image:
+                    source: r'images\ahaber.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[18]
+                on_release: root.press_kanal(18,self)
+                Image:
+                    source: r'images\disney.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[19]
+                on_release: root.press_kanal(19,self)
+                Image:
+                    source: r'images\halktv.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+        GridLayout:
+            cols:4
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: renklist[20]
+                on_release: root.press_kanal(20,self)
+                Image:
+                    source: r'images\ntv.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+                background_down:""
+                background_color: renklist[21]
+                on_release: root.press_kanal(21,self)
+                Image:
+                    source: r'images\trtcocuk.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[22]
+                on_release: root.press_kanal(22,self)
+                Image:
+                    source: r'images\beinmoviesturk.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[23]
+                on_release: root.press_kanal(23,self)
+                Image:
+                    source: r'images\360.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+        GridLayout:
+            cols:2
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: 1, 1, 1, 1
+
+            Button:
+                background_down:""
+                background_color: 1, 1, 1, 1
+                on_release:
+                    app.root.current = "kanallar2"
+                    root.manager.transition.direction = "left"
+                Image:
+                    source: r'images\aright.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+
+
+
+<ChooseWindow2>
+
+    name: "kanallar2"
+
+
+    GridLayout:
+        cols:1
+        rows:8
+        size: root.width, root.height
+
+        Button:
+            text: "Geri"
+            font_size: 40
+            background_down:""
+            background_color: 0.6, 0, 0, 1
+            on_release:
+                root.storedata()
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+        GridLayout:
+            cols:4
+            rows:1
+            Button:
+
+                background_down:""
+                background_color: renklist[24]
+                on_release: root.press_kanal(24,self)
+                Image:
+                    source: r'images\beinmoviesp.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[25]
+                on_release: root.press_kanal(25,self)
+                Image:
+                    source: r'images\disneyj.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[26]
+                on_release: root.press_kanal(26,self)
+                Image:
+                    source: r'images\beinss.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[27]
+                on_release: root.press_kanal(27,self)
+                Image:
+                    source: r'images\trthaber.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+        GridLayout:
+            cols:4
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: renklist[28]
+                on_release: root.press_kanal(28,self)
+                Image:
+                    source: r'images\beinms.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+                background_down:""
+                background_color: renklist[29]
+                on_release: root.press_kanal(29,self)
+                Image:
+                    source: r'images\natigeo.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[30]
+                on_release: root.press_kanal(30,self)
+                Image:
+                    source: r'images\haberturk.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: renklist[31]
+                on_release: root.press_kanal(31,self)
+                Image:
+                    source: r'images\beinma.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+        GridLayout:
+            cols:4
+            rows:1
+            Button:
+
+                background_down:""
+                background_color: renklist[32]
+                on_release: root.press_kanal(32,self)
+                Image:
+                    source: r'images\bloomberg.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[33]
+                on_release: root.press_kanal(33,self)
+                Image:
+                    source: r'images\ulketv.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[34]
+                on_release: root.press_kanal(34,self)
+                Image:
+                    source: r'images\disneyxd.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[35]
+                on_release: root.press_kanal(35,self)
+                Image:
+                    source: r'images\trtokul.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+        GridLayout:
+            cols:4
+            rows:1
+            Button:
+
+                background_down:""
+                background_color: renklist[36]
+                on_release: root.press_kanal(36,self)
+                Image:
+                    source: r'images\discovery.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[37]
+                on_release: root.press_kanal(37,self)
+                Image:
+                    source: r'images\24.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[38]
+                on_release: root.press_kanal(38,self)
+                Image:
+                    source: r'images\trtmuzik.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[39]
+                on_release: root.press_kanal(39,self)
+                Image:
+                    source: r'images\eurosport.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+        GridLayout:
+            cols:4
+            rows:1
+            Button:
+
+                background_down:""
+                background_color: renklist[40]
+                on_release: root.press_kanal(40,self)
+                Image:
+                    source: r'images\nick.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[41]
+                on_release: root.press_kanal(41,self)
+                Image:
+                    source: r'images\ntvspor.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[42]
+                on_release: root.press_kanal(42,self)
+                Image:
+                    source: r'images\beinma2.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[43]
+                on_release: root.press_kanal(43,self)
+                Image:
+                    source: r'images\beinboxo.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+        GridLayout:
+            cols:4
+            rows:1
+            Button:
+
+                background_down:""
+                background_color: renklist[44]
+                on_release: root.press_kanal(44,self)
+                Image:
+                    source: r'images\nickjr.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+            Button:
+
+                background_down:""
+                background_color: renklist[45]
+                on_release: root.press_kanal(45,self)
+                Image:
+                    source: r'images\ssport.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+
+
+            Label:
+
+
+
+            Label:
+
+
+        GridLayout:
+            cols:2
+            rows:1
+
+            Button:
+                background_down:""
+                background_color: 1, 1, 1, 1
+                on_release:
+                    app.root.current = "kanallar"
+                    root.manager.transition.direction = "right"
+                Image:
+                    source: r'images\left.png'
+                    y: self.parent.y+5
+                    x: self.parent.x+5
+                    size: self.parent.width-10, self.parent.height-10
+                    allow_stretch: True
+            Button:
+                background_down:""
+                background_color: 1, 1, 1, 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
